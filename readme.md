@@ -20,7 +20,7 @@ To set up the test, please follow the following steps:
 5. Run `docker-compose build` to build your image
 6. Run `docker-compose up -d` to run the container
 7. Run `docker exec -ti test-php composer install`
-8. Connect to MySQL and create the database `testdb` and the table `users` with the sql script provided below (MySQL user:`root` password:`root`)
+8. Connect to MySQL and create the database `testdb` and the tablea `users` and `notes` with the sql script provided below (MySQL user:`root` password:`root`)
 9. Set up xDebug in your IDE to port `25009` on the server `localhost` and (if you need the root to `/var/www/html`)
 
 ### SQL scripts
