@@ -1,0 +1,32 @@
+<html>
+    <body>
+        User<br/>
+        <a href="{{ links.home }}">users list</a> | <a href="{{ links.home }}NewUser">Add New User</a><br/>
+        <h1>User Details: {{ data.attributes.firstName }} {{ data.attributes.lastName }}</h1>
+        <a href="mailto:{{ data.attributes.email }}">{{ data.attributes.email }}</a><br/>
+        <h2>Notes</h2>
+
+        {% if data.relationships.notes.data|length == 0 %}
+            {% set notes = [] %}
+        {% elseif data.relationships.notes.data.0|keys|first == 0 %}
+            {% set notes = [data.relationships.notes.data]  %}
+        {% else %}
+            {% set notes = data.relationships.notes.data %}
+        {% endif %}
+
+        {% for note in notes %}
+            {% for element in included %}
+                {% if element.type == note.type and element.id == note.id %}
+                    <p style="margin-left: 20px; padding-left: 5px;border-left: solid 1px #eee;">{{ element.attributes.note }}</p>
+                    {% set break = true %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        Add new note:<br/>
+        <form action="{{ links.home }}note" method="post">
+            <input type="hidden" name="userId" value="{{ data.id }}"/>
+            <textarea name="note"></textarea><br/>
+            <input type="submit">
+        </form>
+    </body>
+</html>

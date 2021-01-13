@@ -1,0 +1,13 @@
+<html>
+    <body>
+        New User<br/>
+        <a href="{{ links.home }}">users list</a> | <a href="{{ links.home }}NewUser">Add New User</a><br/>
+        <h1>New User</h1>
+        <form action="{{ links.home }}user" method="post">
+            First Name: <input type="text" name="firstName"><br/>
+            Last Name: <input type="text" name="lastName"><br/>
+            Email: <input type="text" name="email"><br/>
+            <input type="submit">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+.idea
+./data
+.env
+./vendor
+.docker/.env
+.docker/docker-compose.override.yml
+./logs
+data/logs/*
+data/cache/*
+vendor
+.phpunit.result.cache

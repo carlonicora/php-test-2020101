@@ -1,0 +1,42 @@
+<html>
+    <body>
+        Users List<br/>
+        <a href="{{ links.home }}">users list</a> | <a href="{{ links.home }}NewUser">Add New User</a><br/>
+        <h1>Users</h1>
+        <form action="/" method="post">
+            Search by name: <input type="text" name="searchedName" value="{{ meta.searchedName }}"><input type="submit">
+        </form>
+        <table border="1">
+            <thead>
+            <tr>
+                <td>
+                    First Name
+                </td>
+                <td>
+                    Last Name
+                </td>
+                <td>
+                    Email
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+                {% for user in data %}
+                    <tr>
+                        <td>
+                            <a href="{{ links.home }}user/{{ user.id }}">
+                                {{ user.attributes.firstName }}
+                            </a>
+                        </td>
+                        <td>
+                            {{ user.attributes.lastName }}
+                        </td>
+                        <td>
+                            {{ user.attributes.email }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
