@@ -82,7 +82,7 @@ class User extends AbstractModel
      * @return int
      * @throws Exception
      */
-    public function post(
+    public function put(
         PhpTest $phpTest,
         ?string $firstName='',
         ?string $lastName='',
